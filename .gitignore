@@ -140,6 +140,6 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-dots_and_boxes/__pycache__/
+dots_and_boxes/__pycache__
 *.py[cod]
 *$py.class

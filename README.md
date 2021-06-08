@@ -7,20 +7,17 @@ Chosen game is classic version of board game "Dots and boxes" (https://en.wikipe
 <ol>
 <li>
 
-Clone the repository: `git clone ` \
+Clone the repository: `git clone https://github.com/marriuss/dots-and-boxes.git` \
 (Or just download it)
 </li>
 <li>
 
-Make sure you are in the app directory: `cd Dots_And_Boxes`
+Make sure you have all the requirements: `Dots_and_Boxes\ pip install -r requirements.txt`
 </li>
 <li>
 
-Install all the requirements: `pip3 install -r requirements.txt`
-</li>
-<li>
-
-Run the app: `python run.py`
+Run the app: `Dots_and_Boxes\ python run.py` \
+(Or just run the file)
 </li>
 </ol>
 
