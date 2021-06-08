@@ -12,11 +12,11 @@ Clone the repository: `git clone https://github.com/marriuss/dots-and-boxes.git`
 </li>
 <li>
 
-Make sure you have all the requirements: `Dots_and_Boxes\ pip install -r requirements.txt`
+Make sure you have all the requirements: `dots_and_boxes\ pip install -r requirements.txt`
 </li>
 <li>
 
-Run the app: `Dots_and_Boxes\ python run.py` \
+Run the app: `dots_and_boxes\ python run.py` \
 (Or just run the file)
 </li>
 </ol>
