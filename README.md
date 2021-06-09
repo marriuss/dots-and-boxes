@@ -15,6 +15,7 @@ Clone the repository: `git clone https://github.com/marriuss/dots-and-boxes.git`
 Make sure you have all the requirements: `dots_and_boxes\ pip install -r requirements.txt`
 </li>
 <li>
+
 Run the app: `dots_and_boxes\ python run.py` \
 (Or just run the file)
 </li>
