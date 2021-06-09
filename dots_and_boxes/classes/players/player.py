@@ -7,20 +7,20 @@ class Player:
     """
 
     def __init__(self, color, name):
-        self.color = color  # установка цвета игрока
-        self.name = name  # установка имени игрока
-        self.terminal_state = False  # работа игрока не завершена
-        self.type = "BOT"  # тип игрока - бот
+        self.color = color
+        self.name = name
+        self.terminal_state = False
+        self.type = "BOT"
 
     def make_move(self, game):
         """
         Принимает решение о действии на основе информации о состояниях игры.
         """
-        current_state = game[-1]  # текущее состояние
-        if current_state["gameover"]:  # если игра уже закончена
-            self.terminal_state = True  # работа игрока завершена
+        current_state = game[-1]
+        if current_state["gameover"]:
+            self.terminal_state = True
             return None
-        edge = random.sample(current_state["available_edges"], 1)[0][0]  # случайный выбор из доступных действий
+        edge = random.sample(current_state["available_edges"], 1)[0][0]
         return edge
 
     def reset(self):
