@@ -1,5 +1,3 @@
-Board game "Dots and squares" with Q-learning implementation.
-
 This application is my coursework project. Its aim was to implement Q-learning algorithm in multi-agent game.
 Chosen game is classic version of board game "Dots and boxes" (https://en.wikipedia.org/wiki/Dots_and_Boxes).
 
