@@ -19,7 +19,7 @@ Run the app: `dots_and_boxes\ python run.py` \
 </li>
 </ol>
 
-#### Project features
+### Project features
 
 ##### Features implemented:
 <ul>
@@ -34,27 +34,16 @@ Run the app: `dots_and_boxes\ python run.py` \
 <li>Documentation.</li>
 </ul>
 
-#### Settings
-
-##### Game
-
-##### GUI
+### Settings
 _Text is not available..._
 
-##### Q-learning
-_Text is not available..._
-
-##### Colors
-_Text is not available..._
-
-#### Types of players
-_Text is not available..._
+### Types of players
 
 ##### Bot
 Default type of player. It's strategy is stupidly simple: it chooses one of currently available edges on field completely randomly.  
 
 ##### Agent
-_Text is not available..._
+It's strategy is based on Q-learning algorithm. To learn more you can visit this page: https://en.wikipedia.org/wiki/Q-learning.
 
 #### Known bugs
 "Win" text can be shown incorrectly.
