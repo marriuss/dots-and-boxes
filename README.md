@@ -1,7 +1,7 @@
 This application is my coursework project. Its aim was to implement Q-learning algorithm in multi-agent game.
 Chosen game is classic version of board game "Dots and boxes" (https://en.wikipedia.org/wiki/Dots_and_Boxes).
 
-#### How to run the application
+### How to run the application
 <ol>
 <li>
 
@@ -45,7 +45,7 @@ Default type of player. It's strategy is stupidly simple: it chooses one of curr
 ##### Agent
 It's strategy is based on Q-learning algorithm. To learn more you can visit this page: https://en.wikipedia.org/wiki/Q-learning.
 
-#### Known bugs
+### Known bugs
 "Win" text can be shown incorrectly.
 
 P.S. Sorry for misspelling or another type of mistakes in the text above. Text, that is "not available", will be written soon... maybe.
