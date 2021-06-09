@@ -48,4 +48,4 @@ It's strategy is based on Q-learning algorithm. To learn more you can visit this
 ### Known bugs
 "Win" text can be shown incorrectly.
 
-P.S. Sorry for misspelling or another type of mistakes in the text above. Text, that is "not available", will be written soon... maybe.
+P.S. There are can be misspelling or another types of mistakes in the text above. Text, that is "not available", will be written soon... maybe.
