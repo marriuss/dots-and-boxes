@@ -5,10 +5,6 @@ from dots_and_boxes.settings.Q_learning import *
 
 
 class Agent(Player):
-    """
-    Класс для представления интеллектуального агента.
-    """
-
     def __init__(self, color, name):
         Player.__init__(self, color, name)
         self.q_values = {}
@@ -17,9 +13,6 @@ class Agent(Player):
         self.type = "AGENT"
 
     def make_move(self, game):
-        """
-        Принимает решение о действии на основе информации о состоянии игры.
-        """
         current_state = game[-1]
         if current_state["gameover"]:
             self.terminal_state = True
@@ -50,9 +43,6 @@ class Agent(Player):
         return edge
 
     def Q_learning(self, game, max_qvalue):
-        """
-        Обновляет Q-значение для действия, сделанного на прошлом ходе агента.
-        """
         current_state = game[-1]
         actions = current_state["actions"]
         scores = current_state["scores"]

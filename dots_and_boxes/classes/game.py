@@ -6,10 +6,6 @@ import numpy as np
 
 
 class Game:
-    """
-    Класс для представления игры.
-    """
-
     def __init__(self, players, cells, edges, gui):
         self.start_players = players
         self.cells = cells
@@ -17,9 +13,6 @@ class Game:
         self.gui = gui
 
     def reset(self):
-        """
-        Сбрасывает свойства игры до начального состояния.
-        """
         self.current_player = self.start_players[0]
         self.current_color = self.current_player.color
         self.current_players = self.start_players
@@ -39,21 +32,12 @@ class Game:
         self.gui.draw_background()
 
     def get_available_edges(self):
-        """
-        Возваращает список неотмеченных ребер на поле.
-        """
         return list(filter(lambda e: not e.is_filled, self.edges))
 
     def get_available_cells(self):
-        """
-        Возваращает список неотмеченных квадратов на поле.
-        """
         return list(filter(lambda c: not c.is_filled, self.cells))
 
     def get_current_state(self):
-        """
-        Возвращает сведения о текущем состоянии.
-        """
         return \
             {
                 "cells": [c.cell() for c in self.cells],
@@ -68,25 +52,16 @@ class Game:
             }
 
     def swap_players(self):
-        """
-        Передача хода от одного ирока к другому.
-        """
         self.current_players = np.roll(self.current_players, -1)
         self.current_player = self.current_players[0]
         self.current_color = self.current_player.color
 
     def check_gameover(self):
-        """
-        Проверяет, закончилась ли игра согласно правилам.
-        """
         self.is_gameover = not self.get_available_cells()
         if self.is_gameover:
             self.win_state()
 
     def win_state(self):
-        """
-        Определяет победителя.
-        """
         win = max(self.current_score.items(), key=lambda x: x[1])
         color = win[0].color
         name = win[0].name
@@ -99,15 +74,9 @@ class Game:
         self.gui.draw_win_text(name, score, color)
 
     def check_terminal_state(self):
-        """
-        Проверяет, закончили ли все свои действия игроки.
-        """
         self.terminal_state = reduce(lambda x, y: x & y, map(lambda x: x.terminal_state, self.current_players))
 
     def do_action(self, edge):
-        """
-        Переводит игру в следующее состояние согласно совершенному действию.
-        """
         fl = False
         cells = list(filter(lambda c: c.contains(edge), self.get_available_cells()))
         for c in cells:
@@ -123,9 +92,6 @@ class Game:
         self.states.append(self.get_current_state())
 
     def turn(self):
-        """
-        Моделирует ход игрока.
-        """
         edge = self.current_player.make_move(self.states)
         if edge is None:
             self.check_terminal_state()
@@ -137,15 +103,9 @@ class Game:
             self.gui.pause(STEP_PAUSE)
 
     def start(self):
-        """
-        Устанавливает игру в начальное состояние.
-        """
         self.reset()
 
     def game(self):
-        """
-        Моделирует процесс игры.
-        """
         self.start()
         while not self.terminal_state:
             self.turn()

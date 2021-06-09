@@ -33,6 +33,7 @@ Run the app: `dots_and_boxes\ python run.py` \
 <ul>
 <li>Some refactoring.</li>
 <li>New type of players: human!</li>
+<li>Documentation.</li>
 </ul>
 
 #### Settings

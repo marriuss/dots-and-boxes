@@ -13,9 +13,6 @@ gui = GUI()
 
 
 def check_edge(dot1, dot2, edges):
-    """
-    Проверяет, был ли уже создан отрезок с такими точками.
-    """
     check = list(filter(lambda e: e.dot1 is dot1 and e.dot2 is dot2, edges))
     if check:
         return check[0]
