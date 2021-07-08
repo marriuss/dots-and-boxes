@@ -44,7 +44,7 @@ class GUI:
         if self.exists:
             pygame.display.flip()
 
-    def pause(self, t):
+    def pause(self, t=STEP_PAUSE):
         if self.exists:
             time.sleep(t)
 

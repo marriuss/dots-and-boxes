@@ -1,6 +1,5 @@
 from functools import reduce
 
-from dots_and_boxes.settings.GUI_settings import STEP_PAUSE
 from dots_and_boxes.settings.colors import GRAY
 import numpy as np
 
@@ -100,7 +99,7 @@ class Game:
         else:
             self.do_action(edge)
             self.gui.update()
-            self.gui.pause(STEP_PAUSE)
+            self.gui.pause()
 
     def start(self):
         self.reset()
