@@ -1,4 +1,4 @@
-This application is my coursework project. Its aim was to implement Q-learning algorithm in multi-agent game.
+The aim of this project was to implement Q-learning algorithm in multi-agent game.
 Chosen game is classic version of board game "Dots and boxes" (https://en.wikipedia.org/wiki/Dots_and_Boxes).
 
 ### How to run the application
