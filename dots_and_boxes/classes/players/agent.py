@@ -16,7 +16,7 @@ class Agent(Player):
         current_state = game[-1]
         if current_state["gameover"]:
             self.terminal_state = True
-            self.Q_learning(game, 0.0)
+            self.__Q_learning(game, 0.0)
             return None
         available_edges = current_state["available_edges"]
         fl = True
@@ -39,10 +39,10 @@ class Agent(Player):
             edge = random.choice(list(dict_actions))
         else:
             edge = best_action[0]
-        self.Q_learning(game, best_action[1])
+        self.__Q_learning(game, best_action[1])
         return edge
 
-    def Q_learning(self, game, max_qvalue):
+    def __Q_learning(self, game, max_qvalue):
         current_state = game[-1]
         actions = current_state["actions"]
         scores = current_state["scores"]

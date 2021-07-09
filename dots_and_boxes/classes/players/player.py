@@ -7,6 +7,7 @@ class Player:
         self.name = name
         self.terminal_state = False
         self.type = "BOT"
+        self.score = 0
 
     def make_move(self, game):
         current_state = game[-1]
@@ -18,3 +19,7 @@ class Player:
 
     def reset(self):
         self.terminal_state = False
+        self.score = 0
+
+    def inc_score(self):
+        self.score += 1

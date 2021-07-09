@@ -12,9 +12,9 @@ class Game:
         self.gui = gui
 
     def reset(self):
-        self.current_player = self.start_players[0]
-        self.current_color = self.current_player.color
         self.current_players = self.start_players
+        self.current_player = self.current_players[0]
+        self.current_color = self.current_player.color
         self.current_score = {pl: 0 for pl in self.start_players}
         for c in self.cells:
             c.reset()
@@ -81,6 +81,7 @@ class Game:
         for c in cells:
             c.make_edge(edge, self.current_color)
             if c.is_filled:
+                self.current_player.inc_score()
                 self.current_score[self.current_player] += 1
                 fl = True
         self.actions.append((self.current_player, edge))
