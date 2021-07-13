@@ -1,6 +1,6 @@
 from functools import reduce
 
-from dots_and_boxes.settings.colors import GRAY
+from dots_and_boxes.settings import GRAY
 import numpy as np
 
 
@@ -10,6 +10,16 @@ class Game:
         self.cells = cells
         self.edges = edges
         self.gui = gui
+        self.current_players = None
+        self.current_player = None
+        self.current_color = None
+        self.current_score = None
+        self.is_gameover = None
+        self.terminal_state = None
+        self.win = None
+        self.actions = None
+        self.scores = None
+        self.states = None
 
     def reset(self):
         self.current_players = self.start_players
@@ -81,7 +91,6 @@ class Game:
         for c in cells:
             c.make_edge(edge, self.current_color)
             if c.is_filled:
-                self.current_player.inc_score()
                 self.current_score[self.current_player] += 1
                 fl = True
         self.actions.append((self.current_player, edge))

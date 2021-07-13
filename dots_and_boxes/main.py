@@ -1,13 +1,7 @@
-from dots_and_boxes.classes.GUI import GUI
-from dots_and_boxes.classes.field_elements.dot import Dot
-from dots_and_boxes.classes.field_elements.edge import Edge
-from dots_and_boxes.classes.field_elements.cell import Cell
-from dots_and_boxes.classes.players.player import Player
-from dots_and_boxes.classes.players.agent import Agent
-from dots_and_boxes.classes.game import Game
-from dots_and_boxes.settings.colors import *
-from dots_and_boxes.settings.GUI_settings import *
-from dots_and_boxes.settings.game import *
+from .classes import GUI, Game
+from .classes.field_elements import Dot, Edge, Cell
+from .classes.players import Bot, Agent
+from .settings import *
 
 gui = GUI()
 
@@ -47,7 +41,7 @@ def main():
             cells.append(Cell((e1, e2, e3, e4), gui))
 
     # Players
-    p1 = Player(PURPLE, "Pavel")
+    p1 = Bot(PURPLE, "Pavel")
     p2 = Agent(ROYAL_BLUE, "Sergei")
     p3 = Agent(MAGENTA, "Dmitriy")
 

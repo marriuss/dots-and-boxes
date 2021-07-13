@@ -1,3 +1,3 @@
-import dots_and_boxes
+from dots_and_boxes import main
 
-dots_and_boxes.main.main()
+main()

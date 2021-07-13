@@ -5,6 +5,7 @@ import time
 from dots_and_boxes.settings.GUI_settings import *
 from dots_and_boxes.settings.colors import *
 
+
 class GUI:
     def __init__(self):
         self.exists = SHOW_GUI

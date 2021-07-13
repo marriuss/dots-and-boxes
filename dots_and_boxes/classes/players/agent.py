@@ -1,7 +1,7 @@
-from dots_and_boxes.classes.players.player import *
+from player import Player
 import numpy.random as rand
 
-from dots_and_boxes.settings.Q_learning import *
+import dots_and_boxes.settings.Q_learning
 
 
 class Agent(Player):
@@ -35,8 +35,8 @@ class Agent(Player):
         arr = rand.random_sample((len(available_edges),))
         dict_actions = self.q_values.setdefault(index, {e[0]: arr[i] for i, e in enumerate(available_edges)})
         best_action = max(dict_actions.items(), key=lambda x: x[1])
-        if rand.random() < EPSILON:
-            edge = random.choice(list(dict_actions))
+        if rand.random() < dots_and_boxes.settings.Q_learning.EPSILON:
+            edge = rand.choice(list(dict_actions))
         else:
             edge = best_action[0]
         self.__Q_learning(game, best_action[1])
@@ -58,6 +58,7 @@ class Agent(Player):
                 break
         if previous_state is None:
             return
+        index = -1
         for i, state in enumerate(self.q_states):
             fl = True
             for str in self.keys:
@@ -72,19 +73,19 @@ class Agent(Player):
         current_score = scores[-1]
         players = current_score.keys()
         delta_score = {k: current_score[k] - previous_score[k] for k in players}
-        reward = STEP_PENALTY
+        reward = dots_and_boxes.settings.Q_learning.STEP_PENALTY
         for p in players:
             delta = delta_score[p]
             if p is self:
-                reward += SCORE_BONUS * delta
+                reward += dots_and_boxes.settings.Q_learning.SCORE_BONUS * delta
             else:
-                reward += OPPONENT_PENALTY * delta
+                reward += dots_and_boxes.settings.Q_learning.OPPONENT_PENALTY * delta
         win = current_state["win"]
         if win is not None:
             if win[0] is self:
-                reward += WIN_BONUS
+                reward += dots_and_boxes.settings.Q_learning.WIN_BONUS
             else:
-                reward += LOSE_PENALTY
+                reward += dots_and_boxes.settings.Q_learning.LOSE_PENALTY
         current_qvalue = self.q_values[index][previous_action]
-        new_qvalue = current_qvalue + ALPHA * (reward + GAMMA * max_qvalue - current_qvalue)
+        new_qvalue = current_qvalue + dots_and_boxes.settings.Q_learning.ALPHA * (reward + dots_and_boxes.settings.Q_learning.GAMMA * max_qvalue - current_qvalue)
         self.q_values[index][previous_action] = new_qvalue
