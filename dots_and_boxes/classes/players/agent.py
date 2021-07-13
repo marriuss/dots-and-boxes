@@ -1,4 +1,4 @@
-from player import Player
+from .player import Player
 import numpy.random as rand
 
 import dots_and_boxes.settings.Q_learning

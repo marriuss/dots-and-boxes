@@ -1,5 +1,5 @@
 import random
-from player import Player
+from .player import Player
 
 
 class Bot(Player):

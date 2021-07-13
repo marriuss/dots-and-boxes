@@ -1,7 +1,7 @@
 class Cell:
     def __init__(self, edges, gui):
         self.possible_edges = set(edges)
-        self.centre(edges[0], edges[2])
+        self._centre = self._define_centre(edges[0], edges[2])
         self.edges = set()
         self.is_filled = False
         self.color = None
@@ -21,12 +21,13 @@ class Cell:
     def fill(self, color):
         self.is_filled = True
         self.color = color
-        self.gui.draw_dot(self.color, self.centre)
+        self.gui.draw_dot(self.color, self._centre)
 
-    def centre(self, top, bottom):
+    @staticmethod
+    def _define_centre(top, bottom):
         l_corner = (top.dot1.x, top.dot1.y)
         r_corner = (bottom.dot2.x, bottom.dot2.y)
-        self.centre = ((l_corner[0] + r_corner[0]) / 2, (l_corner[1] + r_corner[1]) / 2)
+        return (l_corner[0] + r_corner[0]) / 2, (l_corner[1] + r_corner[1]) / 2
 
     def contains(self, edge):
         return edge in self.possible_edges

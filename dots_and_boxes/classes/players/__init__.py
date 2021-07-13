@@ -1,2 +1,2 @@
-from bot import Bot
-from agent import Agent
+from .bot import Bot
+from .agent import Agent
