@@ -24,7 +24,7 @@ Run the app: `dots_and_boxes\ python run.py` \
 ##### Features implemented:
 <ul>
 <li>More then 2 players allowed.</li>
-<li>Two types of players: Bot (default) and Agent.</li>
+<li>Two types of players: Bot and Agent.</li>
 </ul>
 
 ##### To-do list:
@@ -41,7 +41,7 @@ _Text is not available..._
 ### Types of players
 
 ##### Bot
-Default type of player. It's strategy is stupidly simple: it chooses one of currently available edges on field completely randomly.  
+Common type of player. It's strategy is stupidly simple: it chooses one of currently available edges on field completely randomly.  
 
 ##### Agent
 It's strategy is based on Q-learning algorithm. To learn more you can visit this page: https://en.wikipedia.org/wiki/Q-learning.
