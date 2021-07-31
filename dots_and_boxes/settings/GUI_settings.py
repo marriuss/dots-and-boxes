@@ -1,4 +1,4 @@
-from dots_and_boxes.settings.game import SIZE
+from .game import SIZE
 
 SHOW_GUI = True
 CELL_SIZE = 50
@@ -13,5 +13,5 @@ CENTRE = CELL_SIZE + BORDER_SIZE
 WIDTH = SIZE * CELL_SIZE + (SIZE - 1) * BORDER_SIZE
 HEIGHT = SIZE * CELL_SIZE + (SIZE - 1) * BORDER_SIZE
 
-STEP_PAUSE = 1
-EPISODE_PAUSE = 2
+STEP_PAUSE = 0.01
+EPISODE_PAUSE = 0.2

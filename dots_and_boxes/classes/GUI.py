@@ -34,8 +34,11 @@ class GUI:
         if self.exists:
             pygame.draw.line(self.canvas, color, coord1, coord2, width)
 
-    def draw_win_text(self, name, score, color):
+    def draw_win_text(self, winner):
         if self.exists:
+            name = winner.name
+            score = winner.score
+            color = winner.color
             str = "WIN: {}   SCORE: {}".format(name, score)
             text = self.font.render(str, True, color)
             self.canvas.blit(text, ((CELLS_OFFSET + BORDER_OFFSET) // 6, CELLS_OFFSET + BORDER_OFFSET))

@@ -1,8 +1,7 @@
 from functools import reduce
-
 from dots_and_boxes.settings import GRAY
 import numpy as np
-
+from .players import Draw
 
 class Game:
     def __init__(self, players, field, gui):
@@ -71,16 +70,25 @@ class Game:
             self.win_state()
 
     def win_state(self):
-        win = max(self.current_score.items(), key=lambda x: x[1])
-        color = win[0].color
-        name = win[0].name
-        score = win[1]
-        self.win = (win[0], score)
-        if score == len(self.cells) / 2:
-            name = "DRAW"
-            color = GRAY
+        # win = max(self.current_score.items(), key=lambda x: x[1])
+        # color = win[0].color
+        # name = win[0].name
+        # score = win[1]
+        # self.win = (win[0], score)
+        # if score == len(self.cells) / 2:
+        #     name = "DRAW"
+        #     color = GRAY
+        #     self.win = None
+        # self.gui.draw_win_text(name, score, color)
+        max_score = max(self.current_score.values())
+        win_players = list(filter(lambda p: p.score == max_score, self.start_players))
+        if len(win_players) > 1:
+            winner = Draw(max_score)
             self.win = None
-        self.gui.draw_win_text(name, score, color)
+        else:
+            winner = win_players[0]
+            self.win = (winner, max_score)
+        self.gui.draw_win_text(winner)
 
     def check_terminal_state(self):
         self.terminal_state = reduce(lambda x, y: x & y, map(lambda x: x.terminal_state, self.current_players))
@@ -92,6 +100,7 @@ class Game:
             c.make_edge(edge, self.current_color, self.gui)
             if c.is_filled:
                 self.current_score[self.current_player] += 1
+                self.current_player.increase_score()
                 fl = True
         self.actions.append((self.current_player, edge))
         self.scores.append({pl: self.current_score[pl] for pl in self.start_players})
