@@ -33,6 +33,7 @@ Run the app: `dots_and_boxes\ python run.py` \
 <li>New type of players: human!</li>
 <li>Documentation.</li>
 <li>Tests.</li>
+<li>Serialization.</li>
 </ul>
 
 ### Settings
