@@ -5,10 +5,10 @@ import numpy as np
 
 
 class Game:
-    def __init__(self, players, cells, edges, gui):
+    def __init__(self, players, field, gui):
         self.start_players = players
-        self.cells = cells
-        self.edges = edges
+        self.cells = field.cells
+        self.edges = field.edges
         self.gui = gui
         self.current_players = None
         self.current_player = None
@@ -89,7 +89,7 @@ class Game:
         fl = False
         cells = list(filter(lambda c: c.contains(edge), self.get_available_cells()))
         for c in cells:
-            c.make_edge(edge, self.current_color)
+            c.make_edge(edge, self.current_color, self.gui)
             if c.is_filled:
                 self.current_score[self.current_player] += 1
                 fl = True

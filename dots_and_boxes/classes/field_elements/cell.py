@@ -1,27 +1,26 @@
 class Cell:
-    def __init__(self, edges, gui):
+    def __init__(self, edges):
         self.possible_edges = set(edges)
         self._centre = self._define_centre(edges[0], edges[2])
         self.edges = set()
         self.is_filled = False
         self.color = None
-        self.gui = gui
 
-    def make_edge(self, edge, color):
+    def make_edge(self, edge, color, gui):
         if not self.is_filled:
             if self.contains(edge) and edge not in self.edges:
                 self.edges.add(edge)
-                edge.fill(color)
+                edge.fill(color, gui)
                 if len(self.edges) == 4:
-                    self.fill(color)
+                    self.fill(color, gui)
 
     def cell(self):
         return self, self.is_filled, self.color
 
-    def fill(self, color):
+    def fill(self, color, gui):
         self.is_filled = True
         self.color = color
-        self.gui.draw_dot(self.color, self._centre)
+        gui.draw_dot(self.color, self._centre)
 
     @staticmethod
     def _define_centre(top, bottom):
