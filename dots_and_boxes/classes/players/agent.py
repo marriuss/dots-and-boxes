@@ -1,7 +1,7 @@
 from .player import Player
 import numpy.random as rand
 
-import dots_and_boxes.settings.Q_learning
+from dots_and_boxes.settings.Q_learning import *
 
 
 class Agent(Player):
@@ -35,7 +35,7 @@ class Agent(Player):
         arr = rand.random_sample((len(available_edges),))
         dict_actions = self.q_values.setdefault(index, {e[0]: arr[i] for i, e in enumerate(available_edges)})
         best_action = max(dict_actions.items(), key=lambda x: x[1])
-        if rand.random() < dots_and_boxes.settings.Q_learning.EPSILON:
+        if rand.random() < EPSILON:
             edge = rand.choice(list(dict_actions))
         else:
             edge = best_action[0]
@@ -73,19 +73,19 @@ class Agent(Player):
         current_score = scores[-1]
         players = current_score.keys()
         delta_score = {k: current_score[k] - previous_score[k] for k in players}
-        reward = dots_and_boxes.settings.Q_learning.STEP_PENALTY
+        reward = STEP_PENALTY
         for p in players:
             delta = delta_score[p]
             if p is self:
-                reward += dots_and_boxes.settings.Q_learning.SCORE_BONUS * delta
+                reward += SCORE_BONUS * delta
             else:
-                reward += dots_and_boxes.settings.Q_learning.OPPONENT_PENALTY * delta
+                reward += OPPONENT_PENALTY * delta
         win = current_state["win"]
         if win is not None:
             if win[0] is self:
-                reward += dots_and_boxes.settings.Q_learning.WIN_BONUS
+                reward += WIN_BONUS
             else:
-                reward += dots_and_boxes.settings.Q_learning.LOSE_PENALTY
+                reward += LOSE_PENALTY
         current_qvalue = self.q_values[index][previous_action]
-        new_qvalue = current_qvalue + dots_and_boxes.settings.Q_learning.ALPHA * (reward + dots_and_boxes.settings.Q_learning.GAMMA * max_qvalue - current_qvalue)
+        new_qvalue = current_qvalue + ALPHA * (reward + GAMMA * max_qvalue - current_qvalue)
         self.q_values[index][previous_action] = new_qvalue

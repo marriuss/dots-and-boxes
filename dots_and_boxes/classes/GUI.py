@@ -13,7 +13,7 @@ class GUI:
             pygame.init()
             pygame.display.set_caption("Dots and Boxes")
             self.canvas = pygame.display.set_mode((WIDTH, HEIGHT + STATUS_BAR_SIZE))
-            self.font = pygame.font.SysFont("comicsansms", FONT_SIZE)
+            self.font = pygame.font.SysFont(FONT_NAME, FONT_SIZE)
 
     def draw_background(self):
         if self.exists:

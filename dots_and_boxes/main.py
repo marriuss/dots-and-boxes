@@ -19,7 +19,7 @@ def main():
     game = Game(players, field, gui)
 
     for i in range(0, EPISODE_AMOUNT):
-        game.game()
+        game.game_loop()
         gui.pause(EPISODE_PAUSE)
 
     gui.exit()
